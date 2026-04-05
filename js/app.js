@@ -94,7 +94,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const name = loadTemplate(templateId, svgContainer);
     titleEl.textContent = name || '색칠놀이';
     showScreen('coloring');
-    if (window.resetZoom) window.resetZoom();
+
   }
 
   // Open image template
@@ -105,7 +105,7 @@ document.addEventListener('DOMContentLoaded', () => {
     titleEl.textContent = template.name;
     showScreen('coloring');
     loadImageUrlToCanvas(template.src, paintCanvas);
-    if (window.resetZoom) window.resetZoom();
+
   }
 
   // Photo import
@@ -119,7 +119,7 @@ document.addEventListener('DOMContentLoaded', () => {
     showScreen('coloring');
     await loadImageToCanvas(file, paintCanvas);
     fileInput.value = '';
-    if (window.resetZoom) window.resetZoom();
+
   });
 
   // Canvas click handler

@@ -41,17 +41,9 @@
       <button id="btn-reset" class="btn-tool" aria-label="초기화" title="초기화">🔄</button>
       <button id="btn-save" class="btn-tool" aria-label="저장" title="저장">💾</button>
     </div>
-    <div class="drawing-area" id="drawing-area">
-      <div class="drawing-transform" id="drawing-transform">
-        <div id="svg-container"></div>
-        <canvas id="paint-canvas"></canvas>
-      </div>
-      <div class="zoom-controls">
-        <button id="btn-zoom-in" class="btn-zoom" aria-label="확대">+</button>
-        <div id="zoom-level" class="zoom-level">100%</div>
-        <button id="btn-zoom-out" class="btn-zoom" aria-label="축소">−</button>
-        <button id="btn-zoom-reset" class="btn-zoom" aria-label="원래크기" style="font-size:0.9rem">↺</button>
-      </div>
+    <div class="drawing-area">
+      <div id="svg-container"></div>
+      <canvas id="paint-canvas"></canvas>
     </div>
     <div id="palette" class="palette-bar"></div>
   </div>
@@ -62,6 +54,5 @@
   <script src="js/svg-coloring.js"></script>
   <script src="js/canvas-coloring.js"></script>
   <script src="js/app.js"></script>
-  <script src="js/zoom.js"></script>
 </body>
 </html>
