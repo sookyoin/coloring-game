@@ -13,8 +13,9 @@ function loadTemplate(templateId, container) {
   fillables.forEach(el => {
     if (el.dataset.nofill) return;
     el.style.cursor = 'pointer';
-    el.addEventListener('click', (e) => {
+    function fillElement(e) {
       e.stopPropagation();
+      e.preventDefault();
       const prevFill = el.getAttribute('fill') || '#ffffff';
       const newColor = getSelectedColor();
       if (prevFill === newColor) return;
@@ -22,7 +23,9 @@ function loadTemplate(templateId, container) {
       el.setAttribute('fill', newColor);
       el.classList.add('fill-pulse');
       setTimeout(() => el.classList.remove('fill-pulse'), 300);
-    });
+    }
+    el.addEventListener('click', fillElement);
+    el.addEventListener('touchend', fillElement);
   });
 
   return template.name;

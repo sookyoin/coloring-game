@@ -122,12 +122,29 @@ document.addEventListener('DOMContentLoaded', () => {
 
   });
 
-  // Canvas click handler
-  paintCanvas.addEventListener('click', (e) => {
+  // Canvas click/touch handler
+  function handleCanvasFill(e) {
     if (currentMode !== 'canvas') return;
-    const coords = getCanvasCoords(paintCanvas, e);
-    canvasFloodFill(paintCanvas, coords.x, coords.y);
-  });
+    let clientX, clientY;
+    if (e.type === 'touchend') {
+      // Use the last touch point from changedTouches
+      if (e.changedTouches.length === 0) return;
+      const touch = e.changedTouches[0];
+      clientX = touch.clientX;
+      clientY = touch.clientY;
+      e.preventDefault();
+    } else {
+      clientX = e.clientX;
+      clientY = e.clientY;
+    }
+    const rect = paintCanvas.getBoundingClientRect();
+    const x = (clientX - rect.left) * (paintCanvas.width / rect.width);
+    const y = (clientY - rect.top) * (paintCanvas.height / rect.height);
+    canvasFloodFill(paintCanvas, x, y);
+  }
+
+  paintCanvas.addEventListener('click', handleCanvasFill);
+  paintCanvas.addEventListener('touchend', handleCanvasFill);
 
   // Toolbar buttons
   document.getElementById('btn-undo').addEventListener('click', () => {
