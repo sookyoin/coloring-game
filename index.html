@@ -37,7 +37,6 @@
     <div class="coloring-toolbar">
       <button id="btn-back" class="btn-tool" aria-label="뒤로" title="뒤로">◀</button>
       <span id="coloring-title" class="coloring-title">색칠놀이</span>
-      <button id="btn-undo" class="btn-tool" aria-label="되돌리기" title="되돌리기">↩</button>
       <button id="btn-reset" class="btn-tool" aria-label="초기화" title="초기화">🔄</button>
       <button id="btn-save" class="btn-tool" aria-label="저장" title="저장">💾</button>
     </div>
@@ -45,7 +44,10 @@
       <div id="svg-container"></div>
       <canvas id="paint-canvas"></canvas>
     </div>
-    <div id="palette" class="palette-bar"></div>
+    <div class="palette-area">
+      <button id="btn-undo" class="btn-undo-float" aria-label="되돌리기" title="되돌리기">↩</button>
+      <div id="palette" class="palette-bar"></div>
+    </div>
   </div>
 
   <script src="js/templates.js"></script>
